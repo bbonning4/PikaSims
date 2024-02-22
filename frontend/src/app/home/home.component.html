@@ -7,6 +7,15 @@
         
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Welcome to PikaSims!</h5>
             <p class="font-normal text-gray-700 dark:text-gray-400">This will be the landing page that allows users to quickly simulate an attack(s) and determine optimal EV spread, Nature, etc. based on parameters set by the user.</p>
+            <select [(ngModel)]="selectedPokemon1">
+                <option value="" selected disabled hidden>Select Your Pokemon</option>
+                <option class="font-normal text-gray-700 dark:text-gray-400" *ngFor="let pokemon of pokemonList | keyvalue" [value]="pokemon.key">{{ pokemon.key }}</option>
+            </select>
+            <select [(ngModel)]="selectedPokemon2">
+                <option value="" selected disabled hidden>Select Opposing Pokemon</option>
+                <option class="font-normal text-gray-700 dark:text-gray-400" *ngFor="let pokemon of pokemonList | keyvalue" [value]="pokemon.key">{{ pokemon.key }}</option>
+            </select>
+            <button class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" (click)="simulateBattle()">Battle!</button>
         </div>   
     </div>
 </div>
